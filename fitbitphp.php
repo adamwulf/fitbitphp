@@ -103,7 +103,7 @@ class FitBitPHP
         $this->initUrls($https, $httpsApi);
     }
 
-    private function initUrls($https = true, $httpsApi = false)
+    private function initUrls($https = true, $httpsApi = true)
     {
 
         if ($httpsApi)
