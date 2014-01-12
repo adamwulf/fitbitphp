@@ -197,6 +197,8 @@ class FitBitPHP
             $_SESSION['fitbit_Session'] = 2;
             $_SESSION['fitbit_Token'] = $access_token_info['oauth_token'];
             $_SESSION['fitbit_Secret'] = $access_token_info['oauth_token_secret'];
+            $_SESSION['fitbit_user_id'] = $access_token_info['encoded_user_id'];
+            $this->setUser($_SESSION['fitbit_user_id']);
 
             $this->setOAuthDetails($_SESSION['fitbit_Token'], $_SESSION['fitbit_Secret']);
             return 1;
@@ -278,6 +280,9 @@ class FitBitPHP
         $this->userId = $userId;
     }
 
+	public function getUserId(){
+		return $this->userId;
+	}
 
     /**
      * Set Unit System for all future calls (see http://wiki.fitbit.com/display/API/API-Unit-System)
